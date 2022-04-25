@@ -42,9 +42,6 @@
  </dependencies>
  
  <build>
- 	<sourceDirectory>src/main/java</sourceDirectory>
-    <testSourceDirectory>src/test/java</testSourceDirectory>
-    <testOutputDirectory>target/test-classes</testOutputDirectory>
  	<plugins>
  		<plugin>
  			<groupId>org.apache.maven.plugins</groupId>
@@ -56,8 +53,14 @@
  			</configuration>
  			<executions>
  				<execution>
+ 					<id>execution1</id>
  					<goals>
  						<goal>compile</goal>
+ 					</goals>
+ 				</execution>
+ 				<execution>
+ 					<id>execution2</id>
+ 					<goals>
  						<goal>testCompile</goal>
  					</goals>
  				</execution>
