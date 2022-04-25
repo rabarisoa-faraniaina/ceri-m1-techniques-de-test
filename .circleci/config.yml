@@ -24,17 +24,11 @@ jobs:
       - run:
           name: Compile
           command: mvn compile
-
-  Test:
-    docker:
-      - image: cimg/openjdk:11.0
-    steps:
-      # Checkout the code as the first step.
-      - checkout
-      # run compile
+       # run compile
       - run:
           name: Test
           command: mvn test
+
 
 # Invoke jobs via workflows
 workflows:
@@ -42,6 +36,4 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build
-      - Test: 
-          requires:
-           - build
+      
