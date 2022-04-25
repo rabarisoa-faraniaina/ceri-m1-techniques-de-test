@@ -25,7 +25,7 @@ jobs:
           name: Compile
           command: mvn compile
 
-  test:
+  Test:
     docker:
       - image: cimg/openjdk:11.0
     steps:
@@ -42,6 +42,6 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build
-      - test: 
+      - Test: 
           requires:
            - build
