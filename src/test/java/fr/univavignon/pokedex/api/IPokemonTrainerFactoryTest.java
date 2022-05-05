@@ -1,6 +1,7 @@
 package fr.univavignon.pokedex.api;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
@@ -14,15 +15,19 @@ public class IPokemonTrainerFactoryTest {
 	public void testcreateTrainerMethod() {
 		IPokemonTrainerFactory ip = mock(IPokemonTrainerFactory.class);
 		IPokedexFactory ipF = mock(IPokedexFactory.class);
-		//PokemonTrainer ptr = new PokemonTrainer("name",Team.INSTINCT,any(IPokedex.class));
-		Mockito.when(ip.createTrainer(eq("name"), eq(Team.INSTINCT), any(IPokedexFactory.class)))
-			.thenReturn(new PokemonTrainer(("name"),eq(Team.INSTINCT),any(IPokedex.class)));
+		IPokedex ipD = mock(IPokedex.class);
+		PokemonTrainer pktr = new PokemonTrainer("name",Team.INSTINCT,ipD);
+		Mockito.when(ip.createTrainer("name", Team.INSTINCT, ipF))
+			.thenReturn(pktr);
 		
 		//check the name value
-		assertEquals("name",ip.createTrainer(eq("name"), eq(Team.INSTINCT), any(IPokedexFactory.class)).getName());
+		assertEquals("name",pktr.getName());
 		
 		//check the team value
-		assertEquals("INSTICT",ip.createTrainer(eq("name"), eq(Team.INSTINCT), any(IPokedexFactory.class)).getTeam());
+		assertSame("INSTINCT",pktr.getTeam().toString());
+		
+		//check pokedex
+		assertSame(ipD,pktr.getPokedex());
 	}
 	
 }
