@@ -17,11 +17,11 @@ public class IPokemonFactoryTest {
 		Mockito.when(ip.createPokemon(0,613, 64, 4000, 4))
 				.thenReturn(pok);
 		
-		
+		double nb = 56;
 		assertEquals(613,pok.getCp());
 		assertEquals(64,pok.getHp());
 		assertEquals(4000,pok.getDust());
 		assertEquals(4,pok.getCandy());
-		assertSame(56,pok.getIv());
+		assertEquals(56,pok.getIv(),0.50);
 	}
 }
