@@ -70,13 +70,8 @@ public class IPokedexTest {
 		
 		assertEquals(2,ip.getPokemons().size());
 		assertEquals(0,ip.getPokemons().get(0).getIndex());  //check 
+		assertEquals(list.size(),ip.getPokemons().size());
 	}
-	/** test getPokemons list  method */
-	@Test
-	public void testgetPokemonsComp() {
-		/**IPokedex ip = mock(IPokedex.class);
-		List<Pokemon> list = new ArrayList<Pokemon>();
-		Mockito.when(ip.getPokemons(new Comparator<Pokemon>)))
-				.thenReturn(list);*/
-	}
+
+	
 }
