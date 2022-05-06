@@ -1,3 +1,6 @@
+[![codecov](https://codecov.io/gh/rabarisoa-faraniaina/ceri-m1-techniques-de-test/branch/master/graph/badge.svg?token=F4YN8QTI3D)](https://codecov.io/gh/rabarisoa-faraniaina/ceri-m1-techniques-de-test)
+[![CircleCI](https://circleci.com/gh/rabarisoa-faraniaina/ceri-m1-techniques-de-test/tree/master.svg?style=svg)](https://circleci.com/gh/rabarisoa-faraniaina/ceri-m1-techniques-de-test/tree/master)
+
 # UCE Génie Logiciel Avancé : Techniques de tests
 
 ## Introduction
