@@ -7,7 +7,7 @@ public class PokemonTrainerFactory implements IPokemonTrainerFactory{
 		PokemonMetadataProvider pmdp = new PokemonMetadataProvider();
 		
 		pokedexFactory.createPokedex(null, null);
-		return new null; //pokemontrainer
+		return null; //pokemontrainer
 	}
 
 }
