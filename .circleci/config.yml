@@ -36,7 +36,7 @@ jobs:
           name: Test
           command: mvn test
       - store_artifacts:
-          path: /target/site/
+          path: /target/site/my-reports/index.html
 
 # Invoke jobs via workflows
 workflows:
