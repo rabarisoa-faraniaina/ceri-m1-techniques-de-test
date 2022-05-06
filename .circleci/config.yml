@@ -2,6 +2,8 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
+orbs:
+  codecov: codecov/codecov@3.1.1
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
@@ -37,7 +39,11 @@ jobs:
           command: mvn test
       - store_artifacts:
           path: /target/site/my-reports/index.html
-
+    Codecov:
+      docker: 
+        - image: cimg/openjdk:11.0
+        - checkout
+        - codecov/upload
 # Invoke jobs via workflows
 workflows:
   sample: # This is the name of the workflow, feel free to change it to better match your workflow.
@@ -47,3 +53,4 @@ workflows:
       - Test: 
           requires:
            - build
+      - Codecov
