@@ -93,6 +93,10 @@
 				     <goals>
 				        <goal>report</goal>
 				     </goals>
+				     <configuration>
+				     	<dataFile>target/jacoco.exec</dataFile>
+				     	<outputDirectory>target/site/my-reports</outputDirectory>
+				     </configuration>
 				  </execution>
 	    	</executions>
  		</plugin>
