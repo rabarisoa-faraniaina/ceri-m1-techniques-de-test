@@ -35,6 +35,8 @@ jobs:
       - run:
           name: Test
           command: mvn test
+      - store_artifacts:
+          path: /target/site/jacoco/jacoco.xml
 
 # Invoke jobs via workflows
 workflows:
