@@ -5,6 +5,14 @@ import java.util.List;
 
 public class Pokedex implements IPokedex{
 	
+	/** List of pokemons */
+	private List<Pokemon> listPokemons;
+	
+	/**  constructor */
+	Pokedex(){
+		
+	}
+	
 	/** get pokemon metadata */
 	@Override
 	public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
@@ -34,13 +42,13 @@ public class Pokedex implements IPokedex{
 	@Override
 	public int size() {
 		
-		return this.getPokemons().size();
+		return this.listPokemons.size();
 	}
 	
 	/** add a pokemon */
 	@Override
 	public int addPokemon(Pokemon pokemon) {
-		if(this.getPokemons().add(pokemon)) {
+		if(this.listPokemons.add(pokemon)) {
 			return 1;
 		}
 		
@@ -50,25 +58,27 @@ public class Pokedex implements IPokedex{
 	/** get pokemon from id*/
 	@Override
 	public Pokemon getPokemon(int id) throws PokedexException {
-		List<Pokemon> listPok = this.getPokemons();
+		
 		for(int i = 0; i < this.size(); i++) {
-			if(listPok.get(i).getIndex() == id) {
-				return listPok.get(i);
+			if(this.listPokemons.get(i).getIndex() == id) {
+				return this.listPokemons.get(i);
 			}
 		}
 		return null;
 	}
-
+	
+	/** list of pokemons in this pokedex */
 	@Override
 	public List<Pokemon> getPokemons() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.listPokemons;
 	}
 
 	@Override
 	public List<Pokemon> getPokemons(Comparator<Pokemon> order) {
-		// TODO Auto-generated method stub
-		return null;
+		for(int i = 0; i < this.size(); i++) {
+			order.compare(this.listPokemons.get(i), this.listPokemons.get(i+1));
+		}
+		return this.listPokemons;
 	}
 
 }
