@@ -4,7 +4,6 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Pokedex implements IPokedex{
-	
 	/** List of pokemons */
 	private List<Pokemon> listPokemons;
 	
