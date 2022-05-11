@@ -37,6 +37,9 @@ jobs:
       - run:
           name: Test
           command: mvn test
+      - run:
+          name: CheckStyle
+          command: mvn checkstyle:checkstyle
       - codecov/upload
 # Invoke jobs via workflows
 workflows:
@@ -47,3 +50,4 @@ workflows:
       - Test: 
           requires:
            - build
+           - CheckStyle

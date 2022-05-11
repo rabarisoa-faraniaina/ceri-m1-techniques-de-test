@@ -129,13 +129,14 @@
  			<configuration>
 			    <encoding>UTF-8</encoding>
 			    <consoleOutput>true</consoleOutput>
+			    <linkXRef>false</linkXRef>
+			    <!--<failsOnError>true</failsOnError>-->
 			 	<outputDirectory>target/site/my-reports</outputDirectory>
  			</configuration>
  		</plugin>
  		
  		<!-- Generate badges -->
  		<plugin>
-
  			<groupId>com.github.bordertech.buildtools</groupId>
 			<artifactId>badger</artifactId>
 			<version>1.0.0</version>
