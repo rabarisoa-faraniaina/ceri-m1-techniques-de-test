@@ -44,11 +44,6 @@
 	    <artifactId>jacoco-maven-plugin</artifactId>
     	<version>0.8.8</version>
 	</dependency>
-	<dependency>
-		<groupId>com.puppycrawl.tools</groupId>
-		<artifactId>checkstyle</artifactId>
-		<version>10.1</version>
-	</dependency>
  </dependencies>
  
  
@@ -110,16 +105,9 @@
  			<artifactId>maven-checkstyle-plugin</artifactId>
  			<version>3.1.2</version>
  			<executions>
- 				<!--<execution>
-		            <id>verify-style</id>
-		            <phase>process-classes</phase>
-		            <goals>
-		              <goal>check</goal>
-		            </goals>
-          		</execution>-->
  				<execution>
  					<id>report-checkstyle</id>
- 					<phase>process-classes</phase>
+ 					<phase>site</phase>
  					<goals>
  						<goal>checkstyle</goal>
  					</goals>
@@ -127,29 +115,26 @@
  			</executions>
  			
  			<configuration>
-			    <encoding>UTF-8</encoding>
-			    <consoleOutput>true</consoleOutput>
-			    <linkXRef>false</linkXRef>
-			    <!--<failsOnError>true</failsOnError>-->
-			 	<outputDirectory>target/site/my-reports</outputDirectory>
+ 				<outputDirectory>target/site/my-reports</outputDirectory>
  			</configuration>
  		</plugin>
  		
  		<!-- Generate badges -->
  		<plugin>
+ 			
  			<groupId>com.github.bordertech.buildtools</groupId>
 			<artifactId>badger</artifactId>
 			<version>1.0.0</version>
 			<executions>
 				<execution>
-					<phase>compile</phase>
+					<phase>post-site</phase>
 					<goals>
 						<goal>badges</goal>
 					</goals>
 					<configuration>
 						<outputDir>target/site/badges</outputDir>
 						<inputFiles>
-							<inputFile>target/checkstyle-result.xml</inputFile>
+							<inputFile>target/site/my-reports/checkstyle.html</inputFile>
 						</inputFiles>
 						
 					</configuration>
