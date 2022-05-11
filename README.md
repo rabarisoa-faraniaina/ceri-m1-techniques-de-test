@@ -6,6 +6,7 @@ RABARISOA FARANIAINA
 M1 ILSEN 
 
 Site circleci: https://app.circleci.com/pipelines/github/rabarisoa-faraniaina/ceri-m1-techniques-de-test
+Site codecov: https://app.codecov.io/gh/rabarisoa-faraniaina/ceri-m1-techniques-de-test/ 
 # UCE Génie Logiciel Avancé : Techniques de tests
 
 ## Introduction
