@@ -2,6 +2,10 @@
 [![CircleCI](https://circleci.com/gh/rabarisoa-faraniaina/ceri-m1-techniques-de-test/tree/master.svg?style=svg)](https://circleci.com/gh/rabarisoa-faraniaina/ceri-m1-techniques-de-test/tree/master)
 ![alt text](https://github.com/rabarisoa-faraniaina/ceri-m1-techniques-de-test/blob/master/target/site/badges/checkstyle-result.svg)
 
+RABARISOA FARANIAINA
+M1 ILSEN 
+
+Site circleci: https://app.circleci.com/pipelines/github/rabarisoa-faraniaina/ceri-m1-techniques-de-test
 # UCE Génie Logiciel Avancé : Techniques de tests
 
 ## Introduction
