@@ -14,8 +14,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-  </properties>
-
+  </properties>	
+ 
   <dependencies>
     <dependency>
 	    <groupId>org.apache.commons</groupId>
@@ -43,6 +43,11 @@
 		<groupId>org.jacoco</groupId>
 	    <artifactId>jacoco-maven-plugin</artifactId>
     	<version>0.8.8</version>
+	</dependency>
+	<dependency>
+		<groupId>com.puppycrawl.tools</groupId>
+		<artifactId>checkstyle</artifactId>
+		<version>10.1</version>
 	</dependency>
  </dependencies>
  
@@ -105,9 +110,16 @@
  			<artifactId>maven-checkstyle-plugin</artifactId>
  			<version>3.1.2</version>
  			<executions>
+ 				<!--<execution>
+		            <id>verify-style</id>
+		            <phase>process-classes</phase>
+		            <goals>
+		              <goal>check</goal>
+		            </goals>
+          		</execution>-->
  				<execution>
  					<id>report-checkstyle</id>
- 					<phase>site</phase>
+ 					<phase>process-classes</phase>
  					<goals>
  						<goal>checkstyle</goal>
  					</goals>
@@ -115,12 +127,15 @@
  			</executions>
  			
  			<configuration>
- 				<outputDirectory>target/site/my-reports</outputDirectory>
+			    <encoding>UTF-8</encoding>
+			    <consoleOutput>true</consoleOutput>
+			 	<outputDirectory>target/site/my-reports</outputDirectory>
  			</configuration>
  		</plugin>
  		
  		<!-- Generate badges -->
  		<plugin>
+
  			<groupId>com.github.bordertech.buildtools</groupId>
 			<artifactId>badger</artifactId>
 			<version>1.0.0</version>
@@ -132,7 +147,10 @@
 					</goals>
 					<configuration>
 						<outputDir>target/site/badges</outputDir>
-						<inputFile>target/site/my-reports/checkstyle.html</inputFile>
+						<inputFiles>
+							<inputFile>target/checkstyle-result.xml</inputFile>
+						</inputFiles>
+						
 					</configuration>
 				</execution>
 			</executions>
