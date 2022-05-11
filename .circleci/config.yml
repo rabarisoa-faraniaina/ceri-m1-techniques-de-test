@@ -39,7 +39,7 @@ jobs:
           command: mvn test
       - run:
           name: CheckStyle
-          command: mvn checkstyle:checkstyle
+          command: mvn -B -DskipTests checkstyle:checkstyle
       - codecov/upload
 # Invoke jobs via workflows
 workflows:
