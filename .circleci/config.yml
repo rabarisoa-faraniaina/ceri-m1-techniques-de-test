@@ -41,6 +41,26 @@ jobs:
           name: CheckStyle
           command: mvn -B -DskipTests checkstyle:checkstyle
       - codecov/upload
+  
+  deployDocs:
+    docker:
+      - image: node:8.10.0
+    steps:
+      - checkout
+      - attach_workspace:
+        at: target/site
+      - run:
+        name: installation and configuration of dependencies
+        command: |
+          npm install -g --silent gh-pages@2.0.1
+          git config user.email "frabarisoa@gmail.com"
+          git config user.name "rabarisoa-faraniaina"
+      - add_ssh_keys:
+        fingerprints:
+          - ""
+      - run:
+        name: deploy apidocs to gh pages branch
+        command: gh-pages --dist /target/site/apidocs
 # Invoke jobs via workflows
 workflows:
   sample: # This is the name of the workflow, feel free to change it to better match your workflow.
@@ -50,4 +70,5 @@ workflows:
       - Test: 
           requires:
            - build
+      - deployDocs 
         
