@@ -58,7 +58,9 @@ jobs:
             npm install -g --silent gh-pages@2.0.1
             git config user.email "frabarisoa@gmail.com"
             git config user.name "rabarisoa-faraniaina"
-     
+      - add_ssh_keys:
+          fingerprints:
+            - "21:2b:0c:c7:6d:8b:69:7c:f5:f2:29:5f:83:ab:b2:08"
       - run:
           name: deploy apidocs to gh pages branch
           command: gh-pages --dist /target/site/apidocs
