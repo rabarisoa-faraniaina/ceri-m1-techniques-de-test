@@ -40,6 +40,9 @@ jobs:
       - run:
           name: CheckStyle
           command: mvn -B -DskipTests checkstyle:checkstyle
+      - run:
+          name: javadoc
+          command: mvn -B -DskipTests javadoc:javadoc
       - codecov/upload
   
   deployDocs:
